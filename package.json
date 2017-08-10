@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "A full-stack starter template",
   "main": "index.js",
-  "engine":{"node": "6.11.1"},
+  "engine":{"node": "6.11.1", "npm":"4.2.0"},
   "scripts": {
     "start": "node index.js",
     "heroku-postbuild": "cd client && npm install --only=dev && npm run build",

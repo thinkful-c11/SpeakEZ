@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon index.js"
   },
-  "engine":{"node": "6.11.1"},
+  "engine":{"node": "6.11.1", "npm":"4.2.0"},
   "author": "Joe Turner <jturner@thinkful.com>",
   "license": "MIT",
   "devDependencies": {
