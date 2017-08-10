@@ -55,7 +55,7 @@ export const learnReducer = (state = initialState, action) => {
         case 'PICK_LESSON':
             return Object.assign({}, state,{
                 lesson:action.lesson
-                
+
             })
         case 'REQUEST_LESSON':
             return Object.assign ({}, state, {
@@ -84,25 +84,25 @@ export const learnReducer = (state = initialState, action) => {
 }
 
 export default learnReducer;
-  case 'PICK_LESSON':
-            for (let i = 0; i < state.questions; i++) {
-                if (state.questions[i].language === aciton.lesson) {
-                    let queue = new Queue();
-                    state.questions[i].forEach(question => {
-                    queue.enqueue(question); 
-                    console.log(queue)
-                    })
+//   case 'PICK_LESSON':
+//             for (let i = 0; i < state.questions; i++) {
+//                 if (state.questions[i].language === aciton.lesson) {
+//                     let queue = new Queue();
+//                     state.questions[i].forEach(question => {
+//                     queue.enqueue(question); 
+//                     console.log(queue)
+//                     })
 
                     
-                }
-            }
+//                 }
+//             }
             
             
             
-            let current = queue.dequeue();
-            console.log(current);
-            return Object.assign({}, state,{
-                lesson:action.lesson,
-                questionQueue: queue,
-                currentQuestion: current
-            })
+//             let current = queue.dequeue();
+//             console.log(current);
+//             return Object.assign({}, state,{
+//                 lesson:action.lesson,
+//                 questionQueue: queue,
+//                 currentQuestion: current
+//             })
