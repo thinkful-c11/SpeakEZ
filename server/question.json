@@ -1,0 +1,25 @@
+[
+    {
+        "language":"spanish",
+        "questions":[{
+            "question": "¿Quál ___ tu nombre?",
+            "translation": "What is your name",
+            "answer":"es"
+        },{
+           "question": "¿Cómo ___ tú? (informal)",
+           "translation": "How are you?",
+            "answer":"estás" 
+        },{
+            "question": "¿Cómo te ____?",
+            "translation": "What is your name?",
+            "answer":"llamas"
+        },{
+            "question": "¿Cómo ___ usted? (informal)",
+            "translation":"How are you?",
+            "answer":"está"
+        },{
+            "question": "¿ ___ calor?",
+            "answer":"Hace"
+        }]
+    }
+]

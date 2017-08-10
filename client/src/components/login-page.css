@@ -1,0 +1,30 @@
+.container-login {
+    height:100vh
+}
+.login-box {
+    margin:  15px 0 15px 10px;
+   
+}
+.logo-box {
+    border: 2px solid black;
+    text-align: center;
+    width:90%;
+    margin:auto;
+}
+.about-us {
+    margin:auto;
+    text-align:center;
+}
+ul{
+    padding-left:0;
+}
+li {
+    display:inline;
+    list-style: circle;
+    text-align: center
+}
+li:before{
+    content:'\00B7';
+    padding-right:5px;
+    margin-left:5px;
+}
