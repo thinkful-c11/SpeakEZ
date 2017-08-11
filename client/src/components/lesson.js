@@ -22,15 +22,11 @@ class Lesson extends React.Component {
             }
         }
     }
-
     componentDidMount() {
         this.props.dispatch(logon())
-            this.props.dispatch(startLesson())
+        this.props.dispatch(startLesson())
           
     }
-    
-
- 
     render() {
         let question = this.props.currentQuestion ;
         let lessonPlan;
@@ -42,9 +38,6 @@ class Lesson extends React.Component {
         if (this.props.questions) {
             lessonPlan = this.props.questions.map(lesson => lesson.language)
         }
-
-       
-        
         return (
             <div id='question-container'>
                  <div className='logout-box'>
@@ -72,9 +65,12 @@ class Lesson extends React.Component {
                             this.props.dispatch(enqueueIt(q))
                             this.props.dispatch(nextQuestion()) 
                             element.value = ''
-                        }
+                    }
+                    else{
+                         this.props.dispatch(nextQuestion())
+                    }
                        
-                        this.props.dispatch(nextQuestion()) 
+                        
                         element.value = '' }}>
                         <Link to='#'onClick={() =>{ console.log(this.props.lesson)}}><p className='next-link'>next</p></Link>
                     <input id='answer'placeholder='answer' style={{color:'black', fontFamily:"'Roboto', sans-serif"}} ></input>
@@ -100,9 +96,6 @@ class Lesson extends React.Component {
 const mapStateToProps = (state) => {
     return {
         questions: state.questions,
-        score:state.score,
-        loading:state.loading,
-        currentUser:state.currentUser,
         lesson:state.lesson,
         currentQuestion:state.currentQuestion,
         questionQueue:state.questionQueue,

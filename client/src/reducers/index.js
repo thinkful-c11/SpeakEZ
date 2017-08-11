@@ -110,7 +110,7 @@ export const learnReducer = (state = initialState, action) => {
                 answer:state.answer
             };
             console.log('this is q', action.q)
-            action.q.dequeue()
+            // action.q.dequeue()
             action.q.enqueue(data)
             newQueue = action.q
             console.log(newQueue)

@@ -24,11 +24,11 @@ class QuestionPage extends React.Component {
         
 
     render() {
-        let lesson;
+        // let lesson;
         let questions ;
         let lessonPlan;
         if (this.props.questions) {
-            lessonPlan = this.props.questions.map((lesson,index) =>  <option onClick={(e) => console}key={lesson.language} 
+            lessonPlan = this.props.questions.map((lesson,index) =>  <option onSelect={(e) => console.log('loook',e.target.value)}key={lesson.language} 
                 value={index} className='lesson' style={{ color:'black'}}>{lesson.language}</option>)
             // 
             //lesson.language
@@ -49,7 +49,8 @@ class QuestionPage extends React.Component {
                         </select>
                         <Link to='/lesson' onClick={(e) =>console.log(lessonPlan)}><button >Start</button></Link>
                         <button onClick={() => {
-                                    console.log(lessonPlan)}}>CLICK</button>
+                            console.log("lesson number on questions array",this.props.lesson)
+                                    console.log(this.props.questions)}}>CLICK</button>
                     </div>    
                 </div>
             </div>

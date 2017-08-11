@@ -19,8 +19,6 @@ export const requestLessonError = error => ({
     error
 });
 
-
-
 export const GET_CURRENT_USER_SUCCESS = 'GET_CURRENT_USER_SUCCESS';
 export const getCurrentUserSuccess = user => ({
     type: GET_CURRENT_USER_SUCCESS,
@@ -81,9 +79,7 @@ export const getLessons = () => dispatch => {
 
 export const postThis = () => dispatch => {
     const accessToken = Cookies.get('accessToken');
-  let obj = {language:"french", questions:[{word:"como tal e vou",
-  translation:"how are you",answer:"asd"}]};
- 
+    let obj;
     return fetch('/api/speakez',{
     method: 'POST',
     headers: {
@@ -92,10 +88,6 @@ export const postThis = () => dispatch => {
     },
     body: JSON.stringify(obj)
   })
-//   .then(res => {
-//     dispatch(successCreatePoll(res));
-//     history.push('/');
-//   })
   .catch(error => {
    console.log(error)
   });
@@ -103,26 +95,26 @@ export const postThis = () => dispatch => {
 export const getCurrentUser = () => dispatch => {
     const accessToken = Cookies.get('accessToken');
     if (accessToken) {
-      dispatch(getCurrentUserRequest());
-      request
-          .get('/api/me')
-          .set({'Authorization':`Bearer ${accessToken}`})
-          .then(res => {
-            if (!res.ok) {
-              if (res.status === 401) {
-                Cookies.remove('accessToken');
+        dispatch(getCurrentUserRequest());
+        request
+            .get('/api/me')
+            .set({'Authorization':`Bearer ${accessToken}`})
+            .then(res => {
+                if (!res.ok) {  
+                    if (res.status === 401) {
+                    Cookies.remove('accessToken');
                 return;
-              }
+                    }
               throw new Error(res.statusText)
-            }
+                }
             dispatch(getCurrentUserSuccess(res.body))
-          })
-          .catch(err => dispatch(getCurrentUserError(err)))
+            })
+            .catch(err => dispatch(getCurrentUserError(err)))
     }
 }
 
 export const updateScore = (score,id) => dispatch => {
-     const accessToken = Cookies.get('accessToken');
+    const accessToken = Cookies.get('accessToken');
     let body = {score:score, id:id}
         return fetch('/api/score', {
             method: 'PUT',
@@ -133,27 +125,25 @@ export const updateScore = (score,id) => dispatch => {
 }
 
 export const logon = () => dispatch =>{
-    
      const accessToken = Cookies.get('accessToken');
      fetch('/api/me', {
-                headers: {
-                    'Authorization': `Bearer ${accessToken}`
-                }
-            }).then(res => {
-                if (!res.ok) {
-                    if (res.status === 401) {
-                     Cookies.remove('accessToken');
-                        return;
-                    }
-                    throw new Error(res.statusText);
-                }
-                return res.json();
-            }).then(currentUser => {
-                 console.log('trynna logon', currentUser)
-                dispatch(getUser(currentUser))
-                dispatch(logonRequest())}
-            )
-            .then(() => dispatch(logonSuccess()));
+        headers: {
+            'Authorization': `Bearer ${accessToken}`
+        }
+    }).then(res => {
+        if (!res.ok) {
+            if (res.status === 401) {
+                Cookies.remove('accessToken');
+                return;
+            }
+            throw new Error(res.statusText);
+        }
+        return res.json();
+    }).then(currentUser => {
+        dispatch(getUser(currentUser))
+        dispatch(logonRequest())}
+    )
+    .then(() => dispatch(logonSuccess()));
 }
 
 export const PICK_LESSON = 'PICK_LESSON';
