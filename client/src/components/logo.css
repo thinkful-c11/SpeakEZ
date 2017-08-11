@@ -3,29 +3,20 @@
     letter-spacing:5px;
     text-decoration: none;
 }
+.first{
+    color:#E8AC50;
+    font-size:25px;
+    letter-spacing:2px;
+}
 
-/* .logo-box {
-    text-align: center;
-    width:90%;
-    margin:auto;
-    font-family: 'Indie Flower', cursive;
-    color:white;
+.second{
+    color:#308BFF;
+    font-size:25px;
+     letter-spacing:2px;
+}
 
+.third{
+    color:#00FFA5;
+    font-size:25px;
+     letter-spacing:2px;
 }
-ul{
-    padding-left:0;
-}
-li {
-    display:inline;
-    list-style: circle;
-    text-align: center
-}
-li:before{
-    content:'\00B7';
-    padding-right:5px;
-    margin-left:5px;
-}
-h1{
-    margin-bottom:0;
-    margin-top:0;
-} */

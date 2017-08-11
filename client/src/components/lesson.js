@@ -51,10 +51,10 @@ class Lesson extends React.Component {
                     
                     <ul className="question-list">
                          
-                         <h2>{this.props.questions[this.props.lesson].language}</h2>
+                         <h2 className='lesson-name'>{this.props.questions[this.props.lesson].language}</h2>
                     </ul>
                     <h3 className='actual-question'>{question}</h3>
-                    <h4>Correct Count  {this.state.correctCount}</h4>
+                    <h4 className='correct-count'>Correct Count  {this.state.correctCount}</h4>
                     <form onSubmit={(e) => {
                         e.preventDefault()
                         
@@ -82,14 +82,8 @@ class Lesson extends React.Component {
                     <p className='hint' style={hintStyle}>{this.props.translation}</p>
                     <div className='blank'></div>
                     <Link id='hint' type='text' to='#' onClick={() => this.state.switchDisplay()}>Need a hint?</Link>
-                    
-                      
-                    
-                    
-                    
-                    
-                    <h4>Special Characters</h4>
-                    <h5 style={	{fontFamily:"'Roboto', sans-serif"}}>á é í ó ú ü</h5> 
+                    <h2 className='special-characters-heading'>Special Characters</h2>
+                    <h5 className='special-characters' style={{fontFamily:"'Roboto', sans-serif"}}>á é í ó ú ü</h5> 
                 </div>
 
             </div>

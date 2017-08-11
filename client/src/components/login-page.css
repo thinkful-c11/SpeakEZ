@@ -2,7 +2,7 @@
     height:100vh
 }
 .login-box {
-    margin:  15px 0 0px 10px;
+    margin:  15px 0 40px 10px;
 }
 .logo-box {
     /* border: 2px solid black; */
@@ -42,13 +42,15 @@ h1{
     font-size:95px;
 }
 .about-container{
-    width:250px;
+    width:400px;
     margin:auto;
    
 }
 
 .aboutUs{
-     color:#FF0DFF
+     color:#FF0DFF;
+     font-size:25px;
+     letter-spacing:1px
 }
 
 .actual-question{
@@ -57,4 +59,8 @@ h1{
 
 .login-button{
     color:#00FFA5
+}
+.about-heading{
+    font-size:40px;
+    margin-bottom:0
 }

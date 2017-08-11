@@ -20,7 +20,7 @@ export class LoginPage extends React.Component {
                  
 
                 <div className='about-us'>
-                    <h2>About Us...</h2>
+                    <h2 className='about-heading'>About Us...</h2>
                     <div className='about-container'>
                     <p className='aboutUs'>Started as a week long project that has blossomed to an enhanced learning tool. Learn anything
                         from language, vocabluary and more with Learningo!
