@@ -6,6 +6,7 @@ import Logo from './logo';
 import {Link} from 'react-router-dom'
 import {getLessons, getScore, postThis, logon, pickLesson} from '../actions';
 import questionpage from './question-page.css'
+import floatGrid from './float-grid.css';
 
 class QuestionPage extends React.Component {
     
@@ -15,26 +16,15 @@ class QuestionPage extends React.Component {
             this.props.dispatch(logon())
             this.props.dispatch(getLessons())
     }
-    componentWillUnmount(){
-        console.log('finish score',this.props.score)
-    }
+        
 
-    // renderResults/(){
-    //     if (this.props.loading) {
-    //         return <Spinner spinnerName='circle' noFadeIn/>;
-    //     }
-    // }
-    //use that^ for your spinner loading icon
     render() {
-        console.log(this.props.questions)
         let questions ;
         let lessonPlan;
         if (this.props.questions) {
             lessonPlan = this.props.questions.map(lesson => lesson.language)
-            console.log(lessonPlan)
         }
 
-        
         return (
             <div id='question-container'>
                  <div className='logout-box'>
@@ -43,12 +33,11 @@ class QuestionPage extends React.Component {
                
                 <Logo />
                 <div className='question-box'>
-                    
+                    <h3>What would you like to practice today?</h3>
                     <ul className="question-list">
                          {questions} 
-                         <Link to='/lesson' onClick={(e) =>{this.props.dispatch(pickLesson(e.target.value))}}>{lessonPlan}</Link>
+                         <Link to='/lesson' onClick={(e) =>{this.props.dispatch(pickLesson( lessonPlan))}}>{lessonPlan}</Link>
                     </ul>
-                    <input ></input>
                 </div>
 
             </div>

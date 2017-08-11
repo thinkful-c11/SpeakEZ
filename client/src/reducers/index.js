@@ -1,14 +1,17 @@
 import Queue from '../queue';
 const initialState = {
     currentUser: null,
-    currentQuestion: undefined,
+    currentQuestion:undefined,
     lesson:null,
     questions:[],
-    nextQuestion: null,
+    nextQuestion:null,
     score:null,
     loading:false,
     questionQueue: null,
-    userAnswer: ''
+    answer:null,
+    translation:null,
+    clicked:false
+
 }
 
 export const learnReducer = (state = initialState, action) => {
@@ -28,18 +31,7 @@ export const learnReducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                 currentUser: action.user
             })
-        case 'SET_USER_ANSWER':
-            const userAnswer = action.answer
-            return {...state, userAnswer}
-        case 'CORRECT':
-            const questionQueue = state.questionQueue;
-            current = questionQueue.dequeue();
-            questionQueue.enqueue(action.question);
-            return Object.assign({}, state, {
-              currentQuestion: current,
-              questionQueue,
-              userAnswer: ''
-            })
+      
         case 'CURRENT_USER':
             return Object.assign({}, state, {
                 currentUser:action.currentUser
@@ -53,56 +45,78 @@ export const learnReducer = (state = initialState, action) => {
                 loading:false
             })
         case 'PICK_LESSON':
+        let queue;
+             for (let i = 0; i < state.questions.length; i++) {
+                if (state.questions[i].language === action.lesson[0]) {
+                    queue = new Queue();
+                    state.questions[i].questions.forEach(question => {
+                    queue.enqueue(question); 
+                    })
+                }
+            }
+            console.log(queue)
             return Object.assign({}, state,{
-                lesson:action.lesson
-
+                lesson:action.lesson[0],
+                questionQueue: queue,
             })
+        
         case 'REQUEST_LESSON':
             return Object.assign ({}, state, {
 
             })
         case 'REQUEST_LESSON_SUCCESS':
-            let queue = new Queue();
-            action.questions.forEach(question => {
-              queue.enqueue(question); 
-            })
-            console.log(queue);
-            let current = queue.dequeue();
-            console.log(current);
             return Object.assign({}, state, {
                 questions: action.questions,
-                questionQueue: queue,
-                currentQuestion: current
             })
         case 'REQUEST_LESSON_ERROR':
             return Object.assign({}, state, {
                 error:action.error
             })
+        case 'START_LESSON':
+            let fromQueue = state.questionQueue.dequeue();
+
+            return Object.assign({}, state, {
+                currentQuestion:fromQueue.question,
+                translation:fromQueue.translation,
+                answer:fromQueue.answer
+            })
+        case 'NEXT_QUESTION':
+            let nextQuestion;
+           
+            if (state.questionQueue != undefined) {
+                 nextQuestion = state.questionQueue.dequeue();
+                if (nextQuestion === undefined){
+                    return Object.assign({}, state, {
+                        currentQuestion:'Hooray! You\'ve learned a lot!'
+                    })
+                }
+            console.log(nextQuestion)
+            return Object.assign({}, state, {
+                currentQuestion:nextQuestion.question,
+                translation:nextQuestion.translation,
+                answer:nextQuestion.answer
+
+            })   
+            }
+            
+        case 'ENQUEUE_IT':
+            let newQueue;
+            let data = {
+                question:state.currentQuestion,
+                translation:state.translation,
+                answer:state.answer
+            };
+            console.log('state queue', state.questionQueue)
+
+             newQueue = state.questionQueue.enqueue(data) 
+            console.log(newQueue)
+            return Object.assign({}, state, {
+               questionQueue:newQueue 
+            })
+
         default:
             return state
     }
 }
 
 export default learnReducer;
-//   case 'PICK_LESSON':
-//             for (let i = 0; i < state.questions; i++) {
-//                 if (state.questions[i].language === aciton.lesson) {
-//                     let queue = new Queue();
-//                     state.questions[i].forEach(question => {
-//                     queue.enqueue(question); 
-//                     console.log(queue)
-//                     })
-
-                    
-//                 }
-//             }
-            
-            
-            
-//             let current = queue.dequeue();
-//             console.log(current);
-//             return Object.assign({}, state,{
-//                 lesson:action.lesson,
-//                 questionQueue: queue,
-//                 currentQuestion: current
-//             })

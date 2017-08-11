@@ -102,13 +102,10 @@ app.get('/api/me',
 app.get('/api/speakez',
   passport.authenticate('bearer', {session: false}),
   (req, res) =>  {
-    console.log('hit ')
     Question
     .find()
     .then(questions => {
-      console.log('this is question', questions)
       res.json(questions.map(question => {
-        // console.log(question)
         return question.apiRepr();
       }));
     })

@@ -1,13 +1,49 @@
 .lesson-box{
     margin:auto;
     text-align: center;
-    border: 1px solid black;
     width: 500px;
     height:300px;
-    margin-top:100px
+    margin-top:100px;
+    display: block;
+
 }
 
 .next-link {
     position:absolute;
     bottom:0;
+}
+
+#answer{
+    display:block; 
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:3px;
+    border:none;
+    text-align: center;
+    border-bottom:1px solid black;
+    outline:none; 
+    width:75%; 
+}
+
+.blank{
+    margin-top:55px;
+}
+#hint{
+    display:block; 
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:3px;
+    border:none;
+    text-align: center;
+    outline:none; 
+    width:auto; 
+}
+
+
+
+#button{
+    /* float:right;
+    bottom:left; */
+    margin-top:20px;
+    background: none;
 }

@@ -1,5 +1,6 @@
 import request from "superagent";
 import * as Cookies from 'js-cookie';
+import Queue from '../queue';
 
 export const REQUEST_LESSON = 'REQUEST_LESSON';
 export const requestLesson = () => ({
@@ -18,10 +19,7 @@ export const requestLessonError = error => ({
     error
 });
 
-export const NEXT_QUESTION = 'NEXT_QUESTION';
-export const nextQuestion = () => ({
-    type: NEXT_QUESTION
-})
+
 
 export const GET_CURRENT_USER_SUCCESS = 'GET_CURRENT_USER_SUCCESS';
 export const getCurrentUserSuccess = user => ({
@@ -162,4 +160,19 @@ export const PICK_LESSON = 'PICK_LESSON';
 export const pickLesson = lesson => ({
     type:PICK_LESSON,
     lesson
+})
+
+export const START_LESSON = 'START_LESSON';
+export const startLesson = () =>({
+    type:START_LESSON
+})
+
+export const NEXT_QUESTION = 'NEXT_QUESTION';
+export const nextQuestion = () =>({
+    type:NEXT_QUESTION
+})
+
+export const ENQUEUE_IT = 'ENQUEUE_IT';
+export const enqueueIt = () =>({
+    type:ENQUEUE_IT
 })

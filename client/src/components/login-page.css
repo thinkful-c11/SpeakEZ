@@ -3,13 +3,18 @@
 }
 .login-box {
     margin:  15px 0 15px 10px;
-   
 }
 .logo-box {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     text-align: center;
     width:90%;
     margin:auto;
+    font-family: 'Indie Flower', cursive;
+    color:white;
+
+}
+button{
+    background:none;
 }
 .about-us {
     margin:auto;
@@ -27,4 +32,7 @@ li:before{
     content:'\00B7';
     padding-right:5px;
     margin-left:5px;
+}
+h1{
+    margin-bottom:0px;
 }

@@ -1,8 +1,8 @@
 [
     {
-        "language":"spanish",
+        "language":"Español",
         "questions":[{
-            "question": "¿Quál ___ tu nombre?",
+            "question": "¿Cuál ___ tu nombre?",
             "translation": "What is your name",
             "answer":"es"
         },{
@@ -14,12 +14,37 @@
             "translation": "What is your name?",
             "answer":"llamas"
         },{
-            "question": "¿Cómo ___ usted? (informal)",
+            "question": "¿Cómo ___ usted? (formal)",
             "translation":"How are you?",
             "answer":"está"
         },{
             "question": "¿ ___ calor?",
+            "translation":"Is it hot",
             "answer":"Hace"
         }]
+    },{
+        "language":"Git Commands",
+        "questions":[{
+            "question": "How do you check your remotes?",
+            "translation": "Google it perhaps...?",
+            "answer":"git remote -v"
+        },{
+           "question": "How are new branches created?",
+           "translation": "Check me out B!",
+            "answer":"git checkout -b" 
+        },{
+            "question": "How are upstreams changed?",
+            "translation": "https://stackoverflow.com/questions/2432764/change-the-uri-url-for-a-remote-git-repository",
+            "answer":"git remote set-url origin"
+        },{
+            "question": "How do you starts the git process from commandLine",
+            "translation":"Pretend the folder is already made.",
+            "answer":"git init"
+        },{
+            "question": "Yes or no, is version control important?",
+            "translation":"Think really hard",
+            "answer":"yes"
+        }]
     }
+
 ]

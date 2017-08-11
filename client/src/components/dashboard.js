@@ -19,8 +19,8 @@ export class DashBoard extends React.Component {
                 </div>
                 <Logo />
                 <div className='question-container'>
-                     <p>ready to begin learning francais?</p>
-                     <Link to='/questions'><p>next</p></Link>
+                     <p>ready to begin learning?</p>
+                     <Link to='/questions'><p>CLICK HERE</p></Link>
                 </div>
             </div>
         )
