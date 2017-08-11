@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 // import Spinner from 'react-spinkit';
 import Logo from './logo';
 import {Link} from 'react-router-dom'
-import {getLessons, startLesson, nextQuestion, enqueueIt} from '../actions';
+import {getLessons, startLesson, nextQuestion, enqueueIt, logon} from '../actions';
 import lesson from './lesson.css';
 import floatGrid from './float-grid.css';
 
@@ -24,6 +24,7 @@ class Lesson extends React.Component {
     }
 
     componentDidMount() {
+        this.props.dispatch(logon())
             this.props.dispatch(startLesson())
           
     }
@@ -57,7 +58,7 @@ class Lesson extends React.Component {
                          
                          <h2>{this.props.lesson}</h2>
                     </ul>
-                    <p>{question}</p>
+                    <h3>{question}</h3>
                     <form onSubmit={(e) => {
                         e.preventDefault()
                         
@@ -82,7 +83,7 @@ class Lesson extends React.Component {
                     <div className='blank'></div>
                     <Link id='hint' type='text' to='#' onClick={() => this.state.switchDisplay()}>Need a hint?</Link>
                     
-                    <Link to='#'onClick={() =>{ console.log(this.props.questionQueue)}}><p className='next-link'>next</p></Link>
+                    <Link to='#'onClick={() =>{ console.log(this.props)}}><p className='next-link'>next</p></Link>
                     
                     
                     

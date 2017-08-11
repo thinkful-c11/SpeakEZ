@@ -9,7 +9,12 @@ import questionpage from './question-page.css'
 import floatGrid from './float-grid.css';
 
 class QuestionPage extends React.Component {
-    
+    constructor(props){
+        super(props);
+        this.state = {
+            lesson:null
+        }
+    }
 
     componentDidMount() {
        
@@ -19,10 +24,14 @@ class QuestionPage extends React.Component {
         
 
     render() {
+        let lesson;
         let questions ;
         let lessonPlan;
         if (this.props.questions) {
-            lessonPlan = this.props.questions.map(lesson => <li className='lesson'>{lesson.language}</li>)
+            lessonPlan = this.props.questions.map((lesson,index) =>  <option onClick={(e) => console}key={lesson.language} 
+                value={index}className='lesson' style={{listStyle:'none', color:'black'}}>{lesson.language}</option>)
+            // 
+            //lesson.language
         }
 
         return (
@@ -30,16 +39,17 @@ class QuestionPage extends React.Component {
                  <div className='logout-box'>
                     <a href={'/api/auth/logout'}><button className='logout-button'>Logout</button></a>
                 </div>
-               
                 <Logo />
-                <div className='question-box'>
+                <div className='question-box' >
                     <h3>What would you like to practice today?</h3>
-                    <ul className="question-list">
-                         {questions} 
-                         <Link to='/lesson' onClick={(e) =>{this.props.dispatch(pickLesson( lessonPlan))}}>{lessonPlan}</Link>
-                    </ul>
+                    <div className='inner-container' style={{display:'block'}}>
+                        <select style={{color:'black'}}onChange={(e) =>this.props.dispatch(pickLesson(e.target.value))}>
+                            <option style={{listStyle:'none', color:'black'}} value="''">Choose A Lesson Below</option>
+                            {lessonPlan}
+                        </select>
+                        <Link to='/lesson' onClick={(e) =>console.log(this.state.lesson)}><button >Start</button></Link>
+                    </div>    
                 </div>
-
             </div>
         );
     }

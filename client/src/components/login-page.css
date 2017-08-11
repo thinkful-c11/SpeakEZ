@@ -2,7 +2,7 @@
     height:100vh
 }
 .login-box {
-    margin:  15px 0 15px 10px;
+    margin:  15px 0 0px 10px;
 }
 .logo-box {
     /* border: 2px solid black; */
@@ -34,9 +34,10 @@ li:before{
     margin-left:5px;
 }
 h1{
-    margin-bottom:0px;
+    margin-bottom:0;
+    margin-top:0;
 }
 
 #appName{
-    font-size:200%;
+    font-size:95px;
 }

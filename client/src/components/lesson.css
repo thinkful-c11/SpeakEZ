@@ -25,18 +25,18 @@
     width:75%; 
 }
 
-.blank{
+/* .blank{
     margin-top:55px;
-}
+} */
 #hint{
     display:block; 
     margin:auto;
-    margin-top:10px;
+    margin-top:0;
     margin-bottom:3px;
     border:none;
     text-align: center;
     outline:none; 
-    width:auto; 
+    width:100px
 }
 
 
@@ -45,5 +45,6 @@
     /* float:right;
     bottom:left; */
     margin-top:20px;
+    margin-bottom:15px;
     background: none;
 }

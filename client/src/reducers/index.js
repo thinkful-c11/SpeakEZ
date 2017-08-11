@@ -46,8 +46,9 @@ export const learnReducer = (state = initialState, action) => {
             })
         case 'PICK_LESSON':
         let queue;
+        console.log(action.lesson)
              for (let i = 0; i < state.questions.length; i++) {
-                if (state.questions[i].language === action.lesson[0]) {
+                if (state.questions[i] === state.questions[action.lesson]) {
                     queue = new Queue();
                     state.questions[i].questions.forEach(question => {
                     queue.enqueue(question); 
@@ -56,7 +57,7 @@ export const learnReducer = (state = initialState, action) => {
             }
             console.log(queue)
             return Object.assign({}, state,{
-                lesson:action.lesson[0],
+                lesson:action.lesson[action.lesson],
                 questionQueue: queue,
             })
         
@@ -73,7 +74,7 @@ export const learnReducer = (state = initialState, action) => {
                 error:action.error
             })
         case 'START_LESSON':
-            console.log("OJOOOO",state.questionQueue)
+            // console.log("OJOOOO",state.questionQueue)
             let fromQueue = state.questionQueue.dequeue();
 
             return Object.assign({}, state, {
@@ -88,7 +89,8 @@ export const learnReducer = (state = initialState, action) => {
                  nextQuestion = state.questionQueue.dequeue();
                 if (nextQuestion === undefined){
                     return Object.assign({}, state, {
-                        currentQuestion:'Hooray! You\'ve learned a lot!'
+                        currentQuestion:`Hooray! You\'ve learned a lot! 
+                        Click the logo to start again.`
                     })
                 }
                 console.log(nextQuestion)
@@ -100,20 +102,21 @@ export const learnReducer = (state = initialState, action) => {
             }
             
         case 'ENQUEUE_IT':
-            let newQueue;
-            let data = {
-                question:state.currentQuestion,
-                translation:state.translation,
-                answer:state.answer
-            };
-            console.log('this is q', action.q)
-            action.q.dequeue()
-            action.q.enqueue(data)
-            newQueue = action.q
-            // console.log(newQueue)
-            return Object.assign({}, state, {
-               questionQueue:newQueue 
-            })
+            // let newQueue;
+            // let data = {
+            //     question:state.currentQuestion,
+            //     translation:state.translation,
+            //     answer:state.answer
+            // };
+            // console.log('this is q', action.q)
+            // action.q.dequeue()
+            // action.q.enqueue(data)
+            // newQueue = action.q
+            // // console.log(newQueue)
+            // //problem moving data around.
+            // return Object.assign({}, state, {
+            //    questionQueue:newQueue 
+            // })
 
         default:
             return state
