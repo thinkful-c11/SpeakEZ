@@ -5,7 +5,7 @@ class Logo extends React.Component  {
     render() {
         return (
                 <div id='logo' className='col-12 logo-box'>
-                        <h1>Learningo!</h1>
+                        <h1 id='appName'>Learningo!</h1>
                         <ul>
                             <li>/lear-níngo/</li>
                             <li>/learn-n-Go/</li>

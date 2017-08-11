@@ -36,3 +36,7 @@ li:before{
 h1{
     margin-bottom:0px;
 }
+
+#appName{
+    font-size:200%;
+}

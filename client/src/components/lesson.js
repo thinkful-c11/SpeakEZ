@@ -33,6 +33,7 @@ class Lesson extends React.Component {
     render() {
         let question = this.props.currentQuestion ;
         let lessonPlan;
+        let q = this.props.questionQueue;
         const hintStyle = {
             display:this.state.display,
             marginBottom:'-105px'
@@ -54,7 +55,7 @@ class Lesson extends React.Component {
                     
                     <ul className="question-list">
                          
-                         <h2>{lessonPlan}</h2>
+                         <h2>{this.props.lesson}</h2>
                     </ul>
                     <p>{question}</p>
                     <form onSubmit={(e) => {
@@ -66,14 +67,14 @@ class Lesson extends React.Component {
                         }
                         if (this.props.answer != element.value) {
                             console.log(element.value,'this question was queued')
-                                this.props.dispatch(enqueueIt())
-                                this.props.dispatch(nextQuestion()) 
+
+                            this.props.dispatch(enqueueIt(q))
+                            this.props.dispatch(nextQuestion()) 
                             element.value = ''
                         }
                        
-                            this.props.dispatch(nextQuestion()) 
-                            element.value = ''
-                           }}>
+                        this.props.dispatch(nextQuestion()) 
+                        element.value = '' }}>
                     <input id='answer'placeholder='answer' style={{color:'black', fontFamily:"'Roboto', sans-serif"}} ></input>
                     <input id="button" type="submit" value="Submit" />
                     </form>
@@ -81,7 +82,11 @@ class Lesson extends React.Component {
                     <div className='blank'></div>
                     <Link id='hint' type='text' to='#' onClick={() => this.state.switchDisplay()}>Need a hint?</Link>
                     
-                    <Link to='#'onClick={() =>{ console.log(this.props)}}><p className='next-link'>next</p></Link>
+                    <Link to='#'onClick={() =>{ console.log(this.props.questionQueue)}}><p className='next-link'>next</p></Link>
+                    
+                    
+                    
+                    
                     <h4>Special Characters</h4>
                     <h5 style={	{fontFamily:"'Roboto', sans-serif"}}>á é í ó ú ü</h5> 
                 </div>

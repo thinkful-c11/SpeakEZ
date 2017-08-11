@@ -73,6 +73,7 @@ export const learnReducer = (state = initialState, action) => {
                 error:action.error
             })
         case 'START_LESSON':
+            console.log("OJOOOO",state.questionQueue)
             let fromQueue = state.questionQueue.dequeue();
 
             return Object.assign({}, state, {
@@ -90,13 +91,12 @@ export const learnReducer = (state = initialState, action) => {
                         currentQuestion:'Hooray! You\'ve learned a lot!'
                     })
                 }
-            console.log(nextQuestion)
-            return Object.assign({}, state, {
-                currentQuestion:nextQuestion.question,
-                translation:nextQuestion.translation,
-                answer:nextQuestion.answer
-
-            })   
+                console.log(nextQuestion)
+                return Object.assign({}, state, {
+                    currentQuestion:nextQuestion.question,
+                    translation:nextQuestion.translation,
+                    answer:nextQuestion.answer
+                })   
             }
             
         case 'ENQUEUE_IT':
@@ -106,10 +106,11 @@ export const learnReducer = (state = initialState, action) => {
                 translation:state.translation,
                 answer:state.answer
             };
-            console.log('state queue', state.questionQueue)
-
-             newQueue = state.questionQueue.enqueue(data) 
-            console.log(newQueue)
+            console.log('this is q', action.q)
+            action.q.dequeue()
+            action.q.enqueue(data)
+            newQueue = action.q
+            // console.log(newQueue)
             return Object.assign({}, state, {
                questionQueue:newQueue 
             })

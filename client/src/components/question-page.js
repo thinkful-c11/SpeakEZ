@@ -22,7 +22,7 @@ class QuestionPage extends React.Component {
         let questions ;
         let lessonPlan;
         if (this.props.questions) {
-            lessonPlan = this.props.questions.map(lesson => lesson.language)
+            lessonPlan = this.props.questions.map(lesson => <li className='lesson'>{lesson.language}</li>)
         }
 
         return (

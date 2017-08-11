@@ -173,6 +173,7 @@ export const nextQuestion = () =>({
 })
 
 export const ENQUEUE_IT = 'ENQUEUE_IT';
-export const enqueueIt = () =>({
-    type:ENQUEUE_IT
+export const enqueueIt = (q) =>({
+    type:ENQUEUE_IT,
+    q
 })

@@ -11,3 +11,7 @@
     position:absolute;
     bottom:0;
 }
+.lesson{
+    list-style:none;
+    display:block;
+}
