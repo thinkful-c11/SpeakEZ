@@ -163,8 +163,10 @@ function runServer(databaseUrl=DATABASE_URL, port=3001) {
         console.log(`Your app is listening on port ${port}`);
         resolve();
       }).on('error', err => {
-        mongoose.disconnect();
-        reject(err);
+        mongoose.connect(databaseUrl)
+        .then(() => {mongoose.disconnect();
+        reject(err);})
+        
       });
     });
   });
