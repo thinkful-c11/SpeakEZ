@@ -54,7 +54,7 @@ class QuestionPage extends React.Component {
                 </div>
             </div>
         );
-    }
+    }  
 }
 const mapStateToProps = (state) => {
     return {
