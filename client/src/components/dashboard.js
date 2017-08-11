@@ -18,9 +18,10 @@ export class DashBoard extends React.Component {
                     <button className='logout-button'>Logout</button></Link>
                 </div>
                 <Logo />
-                <div className='question-container'>
+                <div className='welcome-container'>
+                    <h1>Peace Welcome Salaam Shalom Bienvenidos 你好</h1>
                      <p>ready to begin learning?</p>
-                     <Link to='/questions'><p>CLICK HERE</p></Link>
+                     <Link to='/questions'><p className='begin'>CLICK HERE</p></Link>
                 </div>
             </div>
         )

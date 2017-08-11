@@ -14,14 +14,19 @@ export class LoginPage extends React.Component {
         return (
             <div className='container-login'>
                 <div className='login-box'>
-                    <a href={'/api/auth/google'}><button onClick={() => console.log(this)}>Login with Google</button></a>
+                    <a href={'/api/auth/google'}><button className='login-button'>Login with Google</button></a>
                 </div>
                  <Logo />
                  
 
                 <div className='about-us'>
                     <h2>About Us...</h2>
-                    <p>Learn a language with us</p>
+                    <div className='about-container'>
+                    <p className='aboutUs'>Started as a week long project that has blossomed to an enhanced learning tool. Learn anything
+                        from language, vocabluary and more with Learningo!
+                    </p>
+                    </div>
+                    <h2>COME LEARN WITH US!</h2>
                 </div>
             </div>
         )

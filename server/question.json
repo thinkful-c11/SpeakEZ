@@ -2,24 +2,24 @@
     {
         "language":"Español",
         "questions":[{
-            "question": "¿Cuál ___ tu nombre?",
-            "translation": "What is your name",
+            "question": "¿Cuál __ tu nombre?",
+            "translation": "What is your name?",
             "answer":"es"
         },{
-           "question": "¿Cómo ___ tú? (informal)",
+           "question": "¿Cómo __ tú? (informal)",
            "translation": "How are you?",
             "answer":"estás" 
         },{
-            "question": "¿Cómo te ____?",
+            "question": "¿Cómo te __?",
             "translation": "What is your name?",
             "answer":"llamas"
         },{
-            "question": "¿Cómo ___ usted? (formal)",
+            "question": "¿Cómo __ usted? (formal)",
             "translation":"How are you?",
             "answer":"está"
         },{
-            "question": "¿ ___ calor?",
-            "translation":"Is it hot",
+            "question": "¿ __ calor?",
+            "translation":"Is it hot?",
             "answer":"Hace"
         }]
     },{
@@ -44,6 +44,29 @@
             "question": "Yes or no, is version control important?",
             "translation":"Think really hard",
             "answer":"yes"
+        }]
+    },{
+        "language":"Français",
+        "questions":[{
+            "question": "Pardon ! ",
+            "translation": "Google it perhaps...?",
+            "answer":"git remote -v"
+        },{
+           "question": "__ m'appelle...",
+           "translation": "My name is!",
+            "answer":"Je" 
+        },{
+            "question": "Pouvez-vous __ ? (formal)",
+            "translation": "Can you help me?",
+            "answer":"m'aider"
+        },{
+            "question": "Je ne __ pas.",
+            "translation":"I don't understand.",
+            "answer":"comprends"
+        },{
+            "question": "Je vais bien ",
+            "translation":"I'm fine/I'm well.",
+            "answer":"vais"
         }]
     }
 

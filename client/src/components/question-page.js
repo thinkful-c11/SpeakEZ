@@ -29,7 +29,7 @@ class QuestionPage extends React.Component {
         let lessonPlan;
         if (this.props.questions) {
             lessonPlan = this.props.questions.map((lesson,index) =>  <option onClick={(e) => console}key={lesson.language} 
-                value={index}className='lesson' style={{listStyle:'none', color:'black'}}>{lesson.language}</option>)
+                value={index} className='lesson' style={{ color:'black'}}>{lesson.language}</option>)
             // 
             //lesson.language
         }
@@ -44,10 +44,12 @@ class QuestionPage extends React.Component {
                     <h3>What would you like to practice today?</h3>
                     <div className='inner-container' style={{display:'block'}}>
                         <select style={{color:'black'}}onChange={(e) =>this.props.dispatch(pickLesson(e.target.value))}>
-                            <option style={{listStyle:'none', color:'black'}} value="''">Choose A Lesson Below</option>
+                            <option style={{listStyle:'none', color:'black'}} value="''">Choose A Lesson From Below</option>
                             {lessonPlan}
                         </select>
-                        <Link to='/lesson' onClick={(e) =>console.log(this.state.lesson)}><button >Start</button></Link>
+                        <Link to='/lesson' onClick={(e) =>console.log(lessonPlan)}><button >Start</button></Link>
+                        <button onClick={() => {
+                                    console.log(lessonPlan)}}>CLICK</button>
                     </div>    
                 </div>
             </div>
@@ -60,7 +62,10 @@ const mapStateToProps = (state) => {
         score:state.score,
         loading:state.loading,
         currentUser:state.currentUser,
-        lesson:state.lesson
+        lesson:state.lesson,
+        questionQueue:state.questionQueue
+
+
 
     }
 }

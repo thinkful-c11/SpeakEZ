@@ -56,9 +56,9 @@ class Lesson extends React.Component {
                     
                     <ul className="question-list">
                          
-                         <h2>{this.props.lesson}</h2>
+                         <h2>{this.props.questions[this.props.lesson].language}</h2>
                     </ul>
-                    <h3>{question}</h3>
+                    <h3 className='actual-question'>{question}</h3>
                     <form onSubmit={(e) => {
                         e.preventDefault()
                         
@@ -76,6 +76,7 @@ class Lesson extends React.Component {
                        
                         this.props.dispatch(nextQuestion()) 
                         element.value = '' }}>
+                        <Link to='#'onClick={() =>{ console.log(this.props.lesson)}}><p className='next-link'>next</p></Link>
                     <input id='answer'placeholder='answer' style={{color:'black', fontFamily:"'Roboto', sans-serif"}} ></input>
                     <input id="button" type="submit" value="Submit" />
                     </form>
@@ -83,7 +84,7 @@ class Lesson extends React.Component {
                     <div className='blank'></div>
                     <Link id='hint' type='text' to='#' onClick={() => this.state.switchDisplay()}>Need a hint?</Link>
                     
-                    <Link to='#'onClick={() =>{ console.log(this.props)}}><p className='next-link'>next</p></Link>
+                    
                     
                     
                     

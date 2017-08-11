@@ -41,3 +41,20 @@ h1{
 #appName{
     font-size:95px;
 }
+.about-container{
+    width:250px;
+    margin:auto;
+   
+}
+
+.aboutUs{
+     color:#FF0DFF
+}
+
+.actual-question{
+    color:#00FFA5
+}
+
+.login-button{
+    color:#00FFA5
+}
