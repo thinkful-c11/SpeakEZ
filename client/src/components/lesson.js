@@ -84,7 +84,7 @@ class Lesson extends React.Component {
                     <div className='blank'></div>
                     <Link id='hint' type='text' to='#' onClick={() => this.state.switchDisplay()}>Need a hint?</Link>
                     
-                    
+                      
                     
                     
                     
