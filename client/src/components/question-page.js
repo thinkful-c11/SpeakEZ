@@ -43,14 +43,15 @@ class QuestionPage extends React.Component {
                 <div className='question-box' >
                     <h3>What would you like to practice today?</h3>
                     <div className='inner-container' style={{display:'block'}}>
-                        <select style={{color:'black'}}onChange={(e) =>this.props.dispatch(pickLesson(e.target.value))}>
+                        <select style={{color:'black'}}onChange={(e) =>{
+                            console.log('this.props.lesson+++>',this.props.lesson)
+                            console.log('lesson plan from this.props.questions',lessonPlan)
+                            this.props.dispatch(pickLesson(e.target.value))}}>
                             <option style={{listStyle:'none', color:'black'}} value="''">Choose A Lesson From Below</option>
                             {lessonPlan}
                         </select>
-                        <Link to='/lesson' onClick={(e) =>console.log(lessonPlan)}><button >Start</button></Link>
-                        <button onClick={() => {
-                            console.log("lesson number on questions array",this.props.lesson)
-                                    console.log(this.props.questions)}}>CLICK</button>
+                        <Link to='/lesson' ><button >Start</button></Link>
+                        
                     </div>    
                 </div>
             </div>

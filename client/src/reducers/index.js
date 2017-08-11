@@ -49,19 +49,20 @@ export const learnReducer = (state = initialState, action) => {
         console.log("state.questions",state.questions)
         console.log('value passed in',action.lesson)
              for (let i = 0; i < state.questions.length; i++) {
-                if (state.questions[i] === state.questions[action.lesson]) {
+                if (state.questions[action.lesson] === state.questions[i] ) {
                     queue = new Queue();
                     state.questions[i].questions.forEach(question => {
                     queue.enqueue(question); 
                     })
                 }
             }
-            console.log('current Lesson',queue)
+            console.log(action.lesson)
             return Object.assign({}, state,{
-                lesson:action.lesson[action.lesson],
+                lesson:action.lesson,
                 questionQueue: queue,
+
             })
-        
+            
         case 'REQUEST_LESSON':
             return Object.assign ({}, state, {
 

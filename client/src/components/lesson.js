@@ -19,7 +19,8 @@ class Lesson extends React.Component {
                 else if (this.state.display === 'inline-block') {
                    return this.setState({display:'none'})
                 }
-            }
+            },
+            correctCount: 0
         }
     }
     componentDidMount() {
@@ -30,6 +31,7 @@ class Lesson extends React.Component {
     render() {
         let question = this.props.currentQuestion ;
         let lessonPlan;
+        
         let q = this.props.questionQueue;
         const hintStyle = {
             display:this.state.display,
@@ -52,6 +54,7 @@ class Lesson extends React.Component {
                          <h2>{this.props.questions[this.props.lesson].language}</h2>
                     </ul>
                     <h3 className='actual-question'>{question}</h3>
+                    <h4>Correct Count  {this.state.correctCount}</h4>
                     <form onSubmit={(e) => {
                         e.preventDefault()
                         
@@ -67,12 +70,12 @@ class Lesson extends React.Component {
                             element.value = ''
                     }
                     else{
-                         this.props.dispatch(nextQuestion())
+                        this.setState({correctCount:this.state.correctCount + 1})
+                        this.props.dispatch(nextQuestion())
                     }
                        
                         
                         element.value = '' }}>
-                        <Link to='#'onClick={() =>{ console.log(this.props.lesson)}}><p className='next-link'>next</p></Link>
                     <input id='answer'placeholder='answer' style={{color:'black', fontFamily:"'Roboto', sans-serif"}} ></input>
                     <input id="button" type="submit" value="Submit" />
                     </form>
